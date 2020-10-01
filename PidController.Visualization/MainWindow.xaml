@@ -1,0 +1,60 @@
+﻿<Window x:Class="PidController.Visualization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PidController.Visualization"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="WidthAndHeight" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Canvas Height="390" Width="800">
+                <Canvas Name="Rocket" Height="245" Width="44" Canvas.Left="378" Canvas.Top="78">
+                    <Canvas x:Name="Nozzle" Height="55" Canvas.Top="199" Width="54">
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                                <RotateTransform CenterY="0" CenterX="21.6" Angle="0"/>
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                        <Polygon Stroke="Red" Points="16,0 0,32 32,32" StrokeThickness="3" Height="33" Width="34" Canvas.Top="22" RenderTransformOrigin="0.5,0.5">
+                            <Polygon.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.3" ScaleY="0.5"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Polygon.RenderTransform>
+                        </Polygon>
+                        <Polygon Stroke="Red" Canvas.Left="10" Points="16,0 0,32 32,32" StrokeThickness="3" Height="33" Width="34" Canvas.Top="22" RenderTransformOrigin="0.5,0.5">
+                            <Polygon.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.3" ScaleY="0.5"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Polygon.RenderTransform>
+                        </Polygon>
+                        <Polygon Stroke="Red" Canvas.Left="20" Points="16,0 0,32 32,32" StrokeThickness="3" Height="33" Width="34" Canvas.Top="22" RenderTransformOrigin="0.5,0.5">
+                            <Polygon.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="0.3" ScaleY="0.5"/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Polygon.RenderTransform>
+                        </Polygon>
+                        <Polygon Stroke="Black" Fill="White" Canvas.Left="11" Points="16,0 0,32 32,32" StrokeThickness="2" Height="33" Width="34"/>
+                    </Canvas>
+                    <Rectangle Height="209" Canvas.Left="6" Stroke="Black" Fill="White" StrokeThickness="2" Width="32"/>
+                </Canvas>
+            </Canvas>
+            <Grid Height="40" Width="800">
+                <Button Name="StartStopButton" Margin="10 10 0 0" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Click="StartStopButton_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
