@@ -52,7 +52,7 @@ namespace PidController.Visualization
                 {
                     var pv = _rocket.Angle;
                     _rocketAngle = pv;
-                    var err = sp - pv;
+                    var err = pv - sp;
                     var cv = _pidController.In(err);
                     _tvcMount.MountAngle = cv;
                     _tvcMountAngle = _tvcMount.MountAngle;
@@ -63,13 +63,13 @@ namespace PidController.Visualization
 
         private void Init()
         {
-            const double kp = -1;
-            const double ki = 0; // don't wanna use i gain for now
-            const double kd = -0.8;
+            const double kp = 1;
+            const double ki = 0.01;
+            const double kd = 0.8;
 
             _pidController = new Library.PidController(
                 new Factory<IGain>(() => new ProportionalGain(kp)),
-                new Factory<IGain>(() => new IntegralGain(ki, 5)),
+                new Factory<IGain>(() => new IntegralGain(ki)),
                 new Factory<IGain>(() => new DerivativeGain(kd, 5))
             );
 

@@ -118,12 +118,12 @@ namespace PidController.Library
     public class IntegralGain : IGain
     {
         private readonly double _k;
-        private RollingQueue<double> _inputs;
+        private readonly Queue<double> _inputs;
 
-        public IntegralGain(double k, int window)
+        public IntegralGain(double k)
         {
             _k = k;
-            _inputs = new RollingQueue<double>(window);
+            _inputs = new Queue<double>();
         }
         public double In(double input)
         {

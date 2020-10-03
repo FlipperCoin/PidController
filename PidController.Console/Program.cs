@@ -12,13 +12,13 @@ namespace PidController.Console
     {
         static void Main(string[] args)
         {
-            const double kp = -1;
-            const double ki = 0; // don't wanna use i gain for now
-            const double kd = -0.8;
+            const double kp = 1;
+            const double ki = 0.01;
+            const double kd = 0.8;
             
             var pidController = new Library.PidController(
                 new Factory<IGain>(() => new ProportionalGain(kp)), 
-                new Factory<IGain>(() => new IntegralGain(ki, 5)), 
+                new Factory<IGain>(() => new IntegralGain(ki)), 
                 new Factory<IGain>(() => new DerivativeGain(kd, 5))
             );
 
@@ -43,7 +43,7 @@ namespace PidController.Console
                 while (true)
                 {
                     var pv = rocket.Angle;
-                    var err = sp - pv;
+                    var err = pv - sp;
                     var cv = pidController.In(err);
                     tvcMount.MountAngle = cv;
                     Thread.Sleep(50);
